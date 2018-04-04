@@ -1,0 +1,36 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "go safari",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AboutIntent",
+                    "slots": [],
+                    "samples": [
+                        "what can you do for me",
+                        "how to operate it",
+                        "how to use it",
+                        "how to use this",
+                        "how this works",
+                        "What it does",
+                        "What is it all about",
+                        "What can you do"
+                    ]
+                }
+            ],
+            "types": []
+        }
+    }
+}

@@ -36,6 +36,11 @@
                     "values": [
                         {
                             "name": {
+                                "value": "assam"
+                            }
+                        },
+                        {
+                            "name": {
                                 "value": "west bengal"
                             }
                         }

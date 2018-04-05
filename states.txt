@@ -1,52 +1,36 @@
-{
-    "interactionModel": {
-        "languageModel": {
-            "invocationName": "go safari",
-            "intents": [
-                {
-                    "name": "AMAZON.CancelIntent",
-                    "samples": []
-                },
-                {
-                    "name": "AMAZON.HelpIntent",
-                    "samples": []
-                },
-                {
-                    "name": "AMAZON.StopIntent",
-                    "samples": []
-                },
-                {
-                    "name": "AboutIntent",
-                    "slots": [],
-                    "samples": [
-                        "what can you do for me",
-                        "how to operate it",
-                        "how to use it",
-                        "how to use this",
-                        "how this works",
-                        "What it does",
-                        "What is it all about",
-                        "What can you do"
-                    ]
-                }
-            ],
-            "types": [
-                {
-                    "name": "AMAZON.US_CITY",
-                    "values": [
-                        {
-                            "name": {
-                                "value": "assam"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "west bengal"
-                            }
-                        }
-                    ]
-                }
-            ]
-        }
-    }
-}
+andhra pradesh
+arunachal pradesh
+assam
+bihar
+chhattisgarh
+goa
+gujarat
+haryana
+himachal pradesh
+jammu & kashmir
+jharkhand
+karnataka
+kerala
+madhya pradesh
+maharashtra
+manipur
+meghalaya
+mizoram
+nagaland
+odisha
+punjab
+rajasthan
+sikkim
+tamil nadu
+telangana
+tripura
+uttarakhand
+uttar pradesh
+west bengal
+Andaman and Nicobar Islands
+Chandigarh
+Dadra and Nagar Haveli
+Daman & Diu
+The Government of NCT of Delhi
+Lakshadweep
+Puducherry

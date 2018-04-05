@@ -1,0 +1,15 @@
+{
+    "name": "AMAZON.US_CITY",
+    "values": [
+        {
+            "name": {
+                "value": "assam"
+            }
+        },
+        {
+            "name": {
+                "value": "west bengal"
+            }
+        }
+    ]
+}

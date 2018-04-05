@@ -37,7 +37,7 @@ const handlers = {
         this.emit('AboutIntent');
     },
     'AboutIntent': function () {
-        const speechOutput = ABOUT_MESSAGE
+        const speechOutput = ABOUT_MESSAGE;
 
         this.response.speak(speechOutput);
         this.emit(':responseReady');

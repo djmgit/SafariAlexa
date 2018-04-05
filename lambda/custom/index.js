@@ -19,9 +19,19 @@ const handlers = {
     'LaunchRequest': function () {
         this.emit('AboutIntent');
     },
+    'GetTouristPlaces': function () {
+        
+        
+        const speechOutput = "testing";
+
+        this.response.cardRenderer(SKILL_NAME, speechOutput);
+        this.response.speak(speechOutput);
+        this.emit(':responseReady');
+    },
     'AboutIntent': function () {
         const speechOutput = ABOUT_MESSAGE;
-
+        
+        this.response.cardRenderer(SKILL_NAME, speechOutput);
         this.response.speak(speechOutput);
         this.emit(':responseReady');
     },

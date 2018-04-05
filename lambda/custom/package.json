@@ -1,0 +1,23 @@
+{
+  "name": "Safari",
+  "version": "1.0.0",
+  "description": "A travel and tourism guide",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "alexa",
+    "skill",
+    "travel",
+    "tourism",
+    "India",
+    "guide",
+    "information"
+  ],
+  "author": "Amazon.com",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "alexa-sdk": "^1.0.12"
+  }
+}

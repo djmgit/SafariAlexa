@@ -28,6 +28,27 @@
                         "What is it all about",
                         "What can you do"
                     ]
+                },
+                {
+                    "name": "GetTouristPlaces",
+                    "slots": [
+                        {
+                            "name": "state",
+                            "type": "AMAZON.US_CITY"
+                        }
+                    ],
+                    "samples": [
+                        "lets go to {state}",
+                        "places in {state}",
+                        "what are some tourist places in {state}",
+                        "tourist places in {state}",
+                        "what are the places to visit in {state}",
+                        "places I can visit in {state}",
+                        "name some places to visit in {state}",
+                        "Where can I go in {state}",
+                        "Places to visit in {state}",
+                        "Give me some places in {state}"
+                    ]
                 }
             ],
             "types": [
@@ -38,177 +59,177 @@
                             "name": {
                                 "value": "assam"
                             }
-                        }, 
+                        },
                         {
                             "name": {
                                 "value": "andhra pradesh"
                             }
-                        }, 
+                        },
                         {
                             "name": {
                                 "value": "arunachal pradesh"
                             }
-                        }, 
+                        },
                         {
                             "name": {
                                 "value": "bihar"
                             }
-                        }, 
+                        },
                         {
                             "name": {
                                 "value": "chhattisgarh"
                             }
-                        }, 
+                        },
                         {
                             "name": {
                                 "value": "goa"
                             }
-                        }, 
+                        },
                         {
                             "name": {
                                 "value": "gujarat"
                             }
-                        }, 
+                        },
                         {
                             "name": {
                                 "value": "haryana"
                             }
-                        }, 
+                        },
                         {
                             "name": {
                                 "value": "himachal pradesh"
                             }
-                        }, 
+                        },
                         {
                             "name": {
                                 "value": "jammu & kashmir"
                             }
-                        }, 
+                        },
                         {
                             "name": {
                                 "value": "jharkhand"
                             }
-                        }, 
+                        },
                         {
                             "name": {
                                 "value": "karnataka"
                             }
-                        }, 
+                        },
                         {
                             "name": {
                                 "value": "kerala"
                             }
-                        }, 
+                        },
                         {
                             "name": {
                                 "value": "madhya pradesh"
                             }
-                        }, 
+                        },
                         {
                             "name": {
                                 "value": "maharashtra"
                             }
-                        }, 
+                        },
                         {
                             "name": {
                                 "value": "manipur"
                             }
-                        }, 
+                        },
                         {
                             "name": {
                                 "value": "meghalaya"
                             }
-                        }, 
+                        },
                         {
                             "name": {
                                 "value": "mizoram"
                             }
-                        }, 
+                        },
                         {
                             "name": {
                                 "value": "nagaland"
                             }
-                        }, 
+                        },
                         {
                             "name": {
                                 "value": "odisha"
                             }
-                        }, 
+                        },
                         {
                             "name": {
                                 "value": "punjab"
                             }
-                        }, 
+                        },
                         {
                             "name": {
                                 "value": "rajasthan"
                             }
-                        }, 
+                        },
                         {
                             "name": {
                                 "value": "sikkim"
                             }
-                        }, 
+                        },
                         {
                             "name": {
                                 "value": "tamil nadu"
                             }
-                        }, 
+                        },
                         {
                             "name": {
                                 "value": "telangana"
                             }
-                        }, 
+                        },
                         {
                             "name": {
                                 "value": "tripura"
                             }
-                        }, 
+                        },
                         {
                             "name": {
                                 "value": "uttarakhand"
                             }
-                        }, 
+                        },
                         {
                             "name": {
                                 "value": "uttar pradesh"
                             }
-                        }, 
+                        },
                         {
                             "name": {
                                 "value": "west bengal"
                             }
-                        }, 
+                        },
                         {
                             "name": {
                                 "value": "Andaman and Nicobar Islands"
                             }
-                        }, 
+                        },
                         {
                             "name": {
                                 "value": "Chandigarh"
                             }
-                        }, 
+                        },
                         {
                             "name": {
                                 "value": "Dadra and Nagar Haveli"
                             }
-                        }, 
+                        },
                         {
                             "name": {
                                 "value": "Daman & Diu"
                             }
-                        }, 
+                        },
                         {
                             "name": {
                                 "value": "The Government of NCT of Delhi"
                             }
-                        }, 
+                        },
                         {
                             "name": {
                                 "value": "Lakshadweep"
                             }
-                        }, 
+                        },
                         {
                             "name": {
                                 "value": "Puducherry"

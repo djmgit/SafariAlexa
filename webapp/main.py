@@ -60,6 +60,17 @@ class Spots(db.Model):
 
 db.create_all();
 
+class StateDBView(ModelView):
+    can_create = True
+    can_view_details = True
+    column_searchable_list = ['state_name']
+    edit_modal = True
+    column_filters = ['state_name', 'places_to_visit']
+
+# setup admin
+admin = Admin(app, name='AlexaSafari', template_mode='bootstrap3')
+admin.add_view(StateDBView(StateDB, db.session))
+
 @app.route('/api/query_state')
 def query_state():
     response = {}

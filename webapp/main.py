@@ -19,6 +19,9 @@ app.config['SECRET_KEY'] = "THIS IS SECRET"
 
 db = SQLAlchemy(app)
 
+# define constants
+STATUS = {'_FOUND': 'FOUND', '_NOT_FOUND': 'NOT_FOUND'}
+
 class StateDB(db.Model):
     __tablename__ = 'statedb'
 
@@ -56,6 +59,29 @@ class Spots(db.Model):
         self.how_to_reach = how_to_reach
 
 db.create_all();
+
+@app.route('/api/query_state')
+def query_state():
+    response = {}
+    state = request.args.get('state')
+
+    state_obj = StateDB.query.filter_by(state_name=state).all()
+
+    if not state_obj:
+        response['state_name'] = state
+        response['status'] = STATUS['_NOT_FOUND']
+        return jsonify(response)
+
+    state_obj = state_obj[0]
+    places_to_visit = state_obj.places_to_visit
+
+    response['status'] = STATUS['_FOUND']
+    response['state_name'] = state
+    response['places_to_visit'] = places_to_visit
+
+    return jsonify(response)
+
+
 
 @app.route('/')
 def index():

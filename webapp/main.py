@@ -20,7 +20,7 @@ app.config['SECRET_KEY'] = "THIS IS SECRET"
 db = SQLAlchemy(app)
 
 # define constants
-STATUS = {'_FOUND': 'FOUND', '_NOT_FOUND': 'NOT_FOUND'}
+STATUS = {'_FOUND': 'FOUND', '_NOT_FOUND': 'NOT_FOUND', '_EMPTY_QUERY': 'EMPTY_QUERY'}
 
 class StateDB(db.Model):
     __tablename__ = 'statedb'
@@ -75,6 +75,12 @@ admin.add_view(StateDBView(StateDB, db.session))
 def query_state():
     response = {}
     state = request.args.get('state')
+
+    if not state:
+        response['STATUS'] = STATUS['_EMPTY_QUERY']
+        return jsonify(response)
+
+    state = state.lower() 
 
     state_obj = StateDB.query.filter_by(state_name=state).all()
 

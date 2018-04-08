@@ -22,7 +22,7 @@ const handlers = {
     'GetTouristPlaces': function () {
         
         
-        const speechOutput = "testing";
+        const speechOutput = "testing " + this.event.request.intent.slots.state.value;
 
         this.response.cardRenderer(SKILL_NAME, speechOutput);
         this.response.speak(speechOutput);

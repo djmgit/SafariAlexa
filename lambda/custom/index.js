@@ -10,6 +10,15 @@ const STOP_MESSAGE = 'Goodbye!';
 const ABOUT_MESSAGE = 'You can ask about various tourist places and I will provide you with necessary information';
 
 const API_BASE = 'alexasafari.herokuapp.com';
+const QUERY_TYPE = {};
+QUERY_TYPE['location'] = 'location';
+QUERY_TYPE['info'] = 'info';
+QUERY_TYPE['things_to_do'] = 'things_to_do';
+QUERY_TYPE['special_attraction'] = 'special_attraction';
+QUERY_TYPE['time_to_visit'] = 'time_to_visit';
+QUERY_TYPE['near_by_places'] = 'near_by_places';
+QUERY_TYPE['similar_places'] = 'similar_places';
+QUERY_TYPE['how_to_reach'] = 'how_to_reach';
 
 exports.handler = function(event, context, callback) {
     var alexa = Alexa.handler(event, context);
@@ -26,12 +35,39 @@ const handlers = {
         
         
         var state = this.event.request.intent.slots.state.value;
+        var myPath = '/api/query_state?state=' + encodeURIComponent(state)
         console.log(state);
 
-        httpsGet(state,  (myResult) => {
+        httpsGet(myPath,  (myResult) => {
                 console.log("received : " + myResult.places_to_visit);
 
                 this.response.speak(myResult.places_to_visit);
+                this.emit(':responseReady');
+
+            }
+        );
+    },
+    'GetLocationIntent': function () {
+        
+        
+        var spot = this.event.request.intent.slots.spot.value;
+        var myPath = '/api/query_state?spot=' + encodeURIComponent(state) + '&query_type=' + encodeURIComponent(QUERY_TYPE.location);
+
+        httpsGet(myPath,  (myResult) => {
+                this.response.speak(myResult.location);
+                this.emit(':responseReady');
+
+            }
+        );
+    },
+    'GetLocationIntent': function () {
+        
+        
+        var spot = this.event.request.intent.slots.spot.value;
+        var myPath = '/api/query_state?spot=' + encodeURIComponent(state) + '&query_type=' + encodeURIComponent(QUERY_TYPE.info);
+
+        httpsGet(myPath,  (myResult) => {
+                this.response.speak(myResult.info);
                 this.emit(':responseReady');
 
             }
@@ -63,12 +99,12 @@ const handlers = {
 
 // function to call external API to fetch data
 
-function httpsGet(myData, callback) {
+function httpsGet(myPath, callback) {
 
     // create the options object to make the API call
     var options = {
         host: API_BASE,
-        path: '/api/query_state?state=' + encodeURIComponent(myData),
+        path: myPath,
         method: 'GET',
     };
 

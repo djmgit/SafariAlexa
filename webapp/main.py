@@ -20,7 +20,9 @@ app.config['SECRET_KEY'] = "THIS IS SECRET"
 db = SQLAlchemy(app)
 
 # define constants
-STATUS = {'_FOUND': 'FOUND', '_NOT_FOUND': 'NOT_FOUND', '_EMPTY_QUERY': 'EMPTY_QUERY'}
+STATUS = {'_FOUND': 'FOUND', '_NOT_FOUND': 'NOT_FOUND'}
+STATUS['_EMPTY_STATE'] = 'state cannot be empty'
+STATUS['_EMPTY_TYPE'] = 'type cannot be empty'
 
 class StateDB(db.Model):
     __tablename__ = 'statedb'
@@ -67,9 +69,15 @@ class StateDBView(ModelView):
     edit_modal = True
     column_filters = ['state_name', 'places_to_visit']
 
+class SpotDBView(ModelView):
+    can_create = True
+    can_view_details = True
+    edit_modal = True
+
 # setup admin
 admin = Admin(app, name='AlexaSafari', template_mode='bootstrap3')
 admin.add_view(StateDBView(StateDB, db.session))
+admin.add_view(SpotDBView(Spots, db.session))
 
 @app.route('/api/query_state')
 def query_state():
@@ -77,7 +85,7 @@ def query_state():
     state = request.args.get('state')
 
     if not state:
-        response['STATUS'] = STATUS['_EMPTY_QUERY']
+        response['status'] = STATUS['_EMPTY_STATE']
         return jsonify(response)
 
     state = state.lower() 
@@ -97,6 +105,58 @@ def query_state():
     response['places_to_visit'] = places_to_visit
 
     return jsonify(response)
+
+@app.route('/api/query_spot')
+def query_spot():
+    response = {}
+    state = request.args.get('state')
+    query_type = request.args.get('query_type')
+
+    if not state:
+        response['status'] = STATUS['_EMPTY_STATE']
+        return jsonify(response)
+
+    if not query_type:
+        responsep['status'] = STATUS['_EMPTY_TYPE']
+        return jsonify(response)
+
+    state = state.lower()
+
+    state_obj = StateDB.query.filter_by(state_name=state).all()
+    if not state_obj:
+        response['state_name'] = state
+        response['status'] = STATUS['_NOT_FOUND']
+        return jsonify(response)
+
+    response['state_name'] = state
+    response['status'] = STATUS['_FOUND']
+
+    if query_type == 'location':
+        response['location'] = state_obj.location
+
+    if query_type == 'info':
+        response['info'] = state_obj.info
+
+    if query_type == 'things_to_do':
+        response['things_to_do'] = state_obj.things_to_do
+
+    if query_type == 'special_attraction':
+        response['special_attraction'] = state_obj.special_attraction
+
+    if query_type == 'time_to_visit':
+        response['time_to_visit'] = state_obj.time_to_visit
+
+    if query_type == 'near_by_places':
+        response['near_by_places'] = state_obj.near_by_places
+
+    if query_type == 'similar_places':
+        response['similar_places'] = state_obj.similar_places
+
+    if query_type == 'how_to_reach':
+        response['how_to_reach'] = state_obj.how_to_reach
+
+    return jsonify(response);
+
 
 
 

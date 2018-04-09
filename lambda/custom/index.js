@@ -32,8 +32,7 @@ const handlers = {
         this.emit('AboutIntent');
     },
     'GetTouristPlaces': function () {
-        
-        
+
         var state = this.event.request.intent.slots.state.value;
         var myPath = '/api/query_state?state=' + encodeURIComponent(state)
         console.log(state);
@@ -48,10 +47,9 @@ const handlers = {
         );
     },
     'GetLocationIntent': function () {
-        
-        
+
         var spot = this.event.request.intent.slots.spot.value;
-        var myPath = '/api/query_state?spot=' + encodeURIComponent(state) + '&query_type=' + encodeURIComponent(QUERY_TYPE.location);
+        var myPath = '/api/query_state?spot=' + encodeURIComponent(spot) + '&query_type=' + encodeURIComponent(QUERY_TYPE.location);
 
         httpsGet(myPath,  (myResult) => {
                 this.response.speak(myResult.location);
@@ -60,14 +58,85 @@ const handlers = {
             }
         );
     },
-    'GetLocationIntent': function () {
-        
-        
+    'GetInfoIntent': function () {
+
         var spot = this.event.request.intent.slots.spot.value;
-        var myPath = '/api/query_state?spot=' + encodeURIComponent(state) + '&query_type=' + encodeURIComponent(QUERY_TYPE.info);
+        var myPath = '/api/query_state?spot=' + encodeURIComponent(spot) + '&query_type=' + encodeURIComponent(QUERY_TYPE.info);
 
         httpsGet(myPath,  (myResult) => {
                 this.response.speak(myResult.info);
+                this.emit(':responseReady');
+
+            }
+        );
+    },
+    'GetThingsToDoIntent': function () {
+
+        var spot = this.event.request.intent.slots.spot.value;
+        var myPath = '/api/query_state?spot=' + encodeURIComponent(spot) + '&query_type=' + encodeURIComponent(QUERY_TYPE.things_to_do);
+
+        httpsGet(myPath,  (myResult) => {
+                this.response.speak(myResult.things_to_do);
+                this.emit(':responseReady');
+
+            }
+        );
+    },
+    'GetSpecialAttractionIntent': function () {
+
+        var spot = this.event.request.intent.slots.spot.value;
+        var myPath = '/api/query_state?spot=' + encodeURIComponent(spot) + '&query_type=' + encodeURIComponent(QUERY_TYPE.special_attraction);
+
+        httpsGet(myPath,  (myResult) => {
+                this.response.speak(myResult.special_attraction);
+                this.emit(':responseReady');
+
+            }
+        );
+    },
+    'GetTimeToVisitIntent': function () {
+
+        var spot = this.event.request.intent.slots.spot.value;
+        var myPath = '/api/query_state?spot=' + encodeURIComponent(spot) + '&query_type=' + encodeURIComponent(QUERY_TYPE.time_to_visit);
+
+        httpsGet(myPath,  (myResult) => {
+                this.response.speak(myResult.time_to_visit);
+                this.emit(':responseReady');
+
+            }
+        );
+    },
+    'GetNearByPlacesIntent': function () {
+
+        var spot = this.event.request.intent.slots.spot.value;
+        var myPath = '/api/query_state?spot=' + encodeURIComponent(spot) + '&query_type=' + encodeURIComponent(QUERY_TYPE.near_by_places);
+
+        httpsGet(myPath,  (myResult) => {
+                this.response.speak(myResult.near_by_places);
+                this.emit(':responseReady');
+
+            }
+        );
+    },
+    'GetSimilarPlacesIntent': function () {
+
+        var spot = this.event.request.intent.slots.spot.value;
+        var myPath = '/api/query_state?spot=' + encodeURIComponent(spot) + '&query_type=' + encodeURIComponent(QUERY_TYPE.similar_places);
+
+        httpsGet(myPath,  (myResult) => {
+                this.response.speak(myResult.similar_places);
+                this.emit(':responseReady');
+
+            }
+        );
+    },
+    'GetHowToReachIntent': function () {
+
+        var spot = this.event.request.intent.slots.spot.value;
+        var myPath = '/api/query_state?spot=' + encodeURIComponent(spot) + '&query_type=' + encodeURIComponent(QUERY_TYPE.how_to_reach);
+
+        httpsGet(myPath,  (myResult) => {
+                this.response.speak(myResult.how_to_reach);
                 this.emit(':responseReady');
 
             }

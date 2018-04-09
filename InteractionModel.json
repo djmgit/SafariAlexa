@@ -49,6 +49,25 @@
                         "Places to visit in {state}",
                         "Give me some places in {state}"
                     ]
+                },
+                {
+                    "name": "GetLocationIntent",
+                    "slots": [
+                        {
+                            "name": "spot",
+                            "type": "AMAZON.SearchQuery"
+                        }
+                    ],
+                    "samples": [
+                        "{spot} location",
+                        "location of {spot}",
+                        "provide the location of {spot}",
+                        "find the location of {spot}",
+                        "what is the location of {spot}",
+                        "where is {spot} located",
+                        "search the location of {spot}",
+                        "tell me the location of {spot}"
+                    ]
                 }
             ],
             "types": [

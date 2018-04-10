@@ -100,11 +100,36 @@ class UserDBView(ModelView):
     can_create = True
     column_searchable_list = ['email']
 
+class AdminLogin(BaseView):
+    @expose('/', methods=('GET', 'POST'))
+    def index(self):
+        return self.render('admin-login.html')
+
 # setup admin
 admin = Admin(app, name='AlexaSafari', template_mode='bootstrap3')
+admin.add_view(AdminLogin(name='Login', endpoint='adminlogin'))
 admin.add_view(StateDBView(StateDB, db.session))
 admin.add_view(SpotDBView(Spots, db.session))
 admin.add_view(UserDBView(User, db.session))
+
+@app.route('/login', methods=('GET', 'POST'))
+def login():
+    if request.method == 'POST':
+        email = request.form['email']
+        password = request.form['pass']
+        user = User.query.filter_by(email=email).first()
+
+        if user:
+            if user.password == password:
+                login_user(user)
+                g.user = current_user
+                return redirect('/admin')
+            else:
+                return redirect('/admin/adminlogin')
+        else:
+            return redirect('/admin/adminlogin')
+    else:
+        return redirect('/admin/adminlogin')
 
 @app.route('/api/query_state')
 def query_state():

@@ -123,6 +123,27 @@
                         "special attractions at {spot}",
                         "what are the special attractions at {spot}"
                     ]
+                },
+                {
+                    "name": "GetTimeToVisitIntent",
+                    "slots": [
+                        {
+                            "name": "spot",
+                            "type": "AMAZON.SearchQuery"
+                        }
+                    ],
+                    "samples": [
+                        "tell me the proper time to visit {spot}",
+                        "tell me the most suitable time to visit {spot}",
+                        "tell me the right time to visit {spot}",
+                        "{spot} best time to visit",
+                        "what is the right time to visit {spot}",
+                        "when to visit {spot}",
+                        "when should I visit {spot}",
+                        "time to visit {spot}",
+                        "what is the most suitable time to visit {spot} ",
+                        "what is the best time to visit {spot}"
+                    ]
                 }
             ],
             "types": [

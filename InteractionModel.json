@@ -68,6 +68,42 @@
                         "search the location of {spot}",
                         "tell me the location of {spot}"
                     ]
+                },
+                {
+                    "name": "GetInfoIntent",
+                    "slots": [
+                        {
+                            "name": "spot",
+                            "type": "AMAZON.SearchQuery"
+                        }
+                    ],
+                    "samples": [
+                        "give information about {spot}",
+                        "find me information about {spot}",
+                        "provide information about {spot}",
+                        "give me some information about {spot}",
+                        "provide me some information about {spot}",
+                        "do you know anything about {spot}",
+                        "what do you know about {spot}",
+                        "tell me something about {spot}"
+                    ]
+                },
+                {
+                    "name": "GetThingsToDoIntent",
+                    "slots": [
+                        {
+                            "name": "splot",
+                            "type": "AMAZON.SearchQuery"
+                        }
+                    ],
+                    "samples": [
+                        "what to do at {splot}",
+                        "let me know the things people do at {splot}",
+                        "what are the things people do at {splot}",
+                        "what can I do at {splot}",
+                        "tell me some of the things to do at {splot}",
+                        "what are the things I can do at {splot}"
+                    ]
                 }
             ],
             "types": [

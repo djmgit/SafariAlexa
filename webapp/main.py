@@ -125,7 +125,6 @@ class UserDBView(ModelView):
     def inaccessible_callback(self, name, **kwargs):
         # redirect to login page if user doesn't have access
         return redirect('/admin')
-        
     can_create = True
     column_searchable_list = ['email']
 

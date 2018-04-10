@@ -95,10 +95,15 @@ class SpotDBView(ModelView):
     can_view_details = True
     edit_modal = True
 
+class UserDBView(ModelView):
+    can_create = False
+    column_searchable_list = ['email']
+
 # setup admin
 admin = Admin(app, name='AlexaSafari', template_mode='bootstrap3')
 admin.add_view(StateDBView(StateDB, db.session))
 admin.add_view(SpotDBView(Spots, db.session))
+admin.add_view(UserDBView(User, db.session))
 
 @app.route('/api/query_state')
 def query_state():

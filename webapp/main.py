@@ -85,6 +85,15 @@ class User(db.Model):
 db.create_all();
 
 class StateDBView(ModelView):
+    def is_accessible(self):
+        if current_user.is_authenticated:
+            return True
+        else:
+            return False
+
+    def inaccessible_callback(self, name, **kwargs):
+        # redirect to login page if user doesn't have access
+        return redirect('/admin')
     can_create = True
     can_view_details = True
     column_searchable_list = ['state_name']
@@ -92,11 +101,31 @@ class StateDBView(ModelView):
     column_filters = ['state_name', 'places_to_visit']
 
 class SpotDBView(ModelView):
+    def is_accessible(self):
+        if current_user.is_authenticated:
+            return True
+        else:
+            return False
+
+    def inaccessible_callback(self, name, **kwargs):
+        # redirect to login page if user doesn't have access
+        return redirect('/admin')
+
     can_create = True
     can_view_details = True
     edit_modal = True
 
 class UserDBView(ModelView):
+    def is_accessible(self):
+        if current_user.is_authenticated:
+            return True
+        else:
+            return False
+
+    def inaccessible_callback(self, name, **kwargs):
+        # redirect to login page if user doesn't have access
+        return redirect('/admin')
+        
     can_create = True
     column_searchable_list = ['email']
 
@@ -111,6 +140,14 @@ admin.add_view(AdminLogin(name='Login', endpoint='adminlogin'))
 admin.add_view(StateDBView(StateDB, db.session))
 admin.add_view(SpotDBView(Spots, db.session))
 admin.add_view(UserDBView(User, db.session))
+
+# setup authentication
+login_manager = LoginManager()
+login_manager.init_app(app)
+
+@login_manager.user_loader
+def load_user(email):
+    return User.query.filter_by(email=email).first()
 
 @app.route('/login', methods=('GET', 'POST'))
 def login():
@@ -210,8 +247,16 @@ def query_spot():
 
     return jsonify(response);
 
+@login_manager.unauthorized_handler
+def unauthorized_callback():
+    return redirect('/admin/adminlogin')
 
-
+@app.route("/logout")
+@login_required
+def logout():
+    logout_user()
+    g.user = None
+    return redirect('/admin')
 
 @app.route('/')
 def index():

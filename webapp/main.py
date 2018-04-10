@@ -64,10 +64,11 @@ class Spots(db.Model):
 class User(db.Model):
     __tablename__ = "users"
 
-    email = db.Column(db.String(80), primary_key=True, unique=True)
+    id = db.Column('user_id', db.Integer, primary_key=True)
+    email = db.Column(db.String(80), unique=True)
     password = db.Column(db.String(80))
 
-    def __init__(self, email, password):
+    def __init__(self, email='', password=''):
         self.email = email
         self.password = password
     def __repr__(self):
@@ -96,7 +97,7 @@ class SpotDBView(ModelView):
     edit_modal = True
 
 class UserDBView(ModelView):
-    can_create = False
+    can_create = True
     column_searchable_list = ['email']
 
 # setup admin

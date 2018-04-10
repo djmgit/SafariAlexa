@@ -144,6 +144,53 @@
                         "what is the most suitable time to visit {spot} ",
                         "what is the best time to visit {spot}"
                     ]
+                },
+                {
+                    "name": "GetNearByPlacesIntent",
+                    "slots": [
+                        {
+                            "name": "spot",
+                            "type": "AMAZON.SearchQuery"
+                        }
+                    ],
+                    "samples": [
+                        "provide me some places near {spot}",
+                        "name some places near {spot}",
+                        "places near {spot}",
+                        "What are the plaes near {spot}"
+                    ]
+                },
+                {
+                    "name": "GetSimilarPlacesIntent",
+                    "slots": [
+                        {
+                            "name": "spot",
+                            "type": "AMAZON.SearchQuery"
+                        }
+                    ],
+                    "samples": [
+                        "tell me places similar to {spot}",
+                        "tell me some places similar to {spot}",
+                        "places similar to kolkata {spot}",
+                        "give some places similar to {spot}",
+                        "provide me with some of the places similar to {spot}",
+                        "name some places similar to {spot}"
+                    ]
+                },
+                {
+                    "name": "GetHowToReachIntent",
+                    "slots": [
+                        {
+                            "name": "spot",
+                            "type": "AMAZON.SearchQuery"
+                        }
+                    ],
+                    "samples": [
+                        "how should i reach {spot}",
+                        "tell me how can i reach {spot}",
+                        "how can I reach {spot}",
+                        "how to reach {spot}"
+                    ]
                 }
             ],
             "types": [

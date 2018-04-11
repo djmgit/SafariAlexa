@@ -135,7 +135,7 @@ class AdminLogin(BaseView):
 
 # setup admin
 admin = Admin(app, name='AlexaSafari', template_mode='bootstrap3')
-admin.add_view(AdminLogin(name='Login', endpoint='adminlogin'))
+admin.add_view(AdminLogin(name='Admin Auth', endpoint='adminlogin'))
 admin.add_view(StateDBView(StateDB, db.session))
 admin.add_view(SpotDBView(Spots, db.session))
 admin.add_view(UserDBView(User, db.session))

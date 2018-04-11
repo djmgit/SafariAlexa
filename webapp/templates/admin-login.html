@@ -4,17 +4,22 @@
 <div class="main-content">
   <div class="container">
     <div class="form">
-      <form action="/login" method="POST">
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" class="form-control" id="email" class="form-control" name="email">
-        </div>
-        <div class="form-group">
-          <label for="password">password</label>
-          <input type="password" id="password" class="form-control" name="pass">
-        </div>
-        <button type="submit" class="btn btn-default">Login</button>
-      </form>
+      {% if not current_user.is_authenticated %}
+        <form action="/login" method="POST">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" class="form-control" name="email">
+          </div>
+          <div class="form-group">
+            <label for="password">password</label>
+            <input type="password" id="password" class="form-control" name="pass">
+          </div>
+          <button type="submit" class="btn btn-default">Login</button>
+        </form>
+      {% else %}
+        You are already logged in. <br>
+        Please <a href='/logout'> Logout </a>, once you are done!
+      {% endif %}
     </div>
   </div>
 </div>

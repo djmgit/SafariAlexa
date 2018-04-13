@@ -1,15 +1,21 @@
 # SafariAlexa
 
-SafariAlexa is an Alexa skill focussed on tourism. The purpose of this skill is to help people to gather various
-information on different tourist places from Alexa. This skill will allow Alexa to answer queries like what is the
-location of a particulat spot, what is the best time of the year to visit that spot, what are the special attractions
-of that place, etc. Instead of searching all these information from various sources on the Internet, users can simply
-ask their queries to Alexa and Alexa will answer them.
+SafariAlexa is an Alexa skill focussed on tourism, primarily tourism in **India**. 
+The purpose of this skill is to help people to gather various
+information on different tourist places (especially in India as of now)from Alexa. This skill will
+allow Alexa to answer queries like what is the location of a particulat spot, what is the best time
+of the year to visit that spot, what are the special attractions of that place, etc. Instead of searching
+all these information from various sources on the Internet, users can simply ask their queries to 
+Alexa and Alexa will answer them.
 
 ## How to use the skill
 The **invocation phrase** for this skill is **go safari**. So in order to use this skill preceed all your queries with
 the phrase go safari.
 For example:
+
+**ask go safari to name some places to visit in maharashtra**
+
+or
 
 **ask go safari what is the location of manali**
 
@@ -81,6 +87,8 @@ curl 'http://alexasafari.herokuapp.com/api/query_spot?spot=manali&query_type=inf
 
 ```
 http://alexasafari.herokuapp.com/api/query_spot?spot=[name_of_the_spot]&query_type=[type_of_query]
+
+http://alexasafari.herokuapp.com/api/query_state?state=[name_of_the_state]
 ```
 
 where query_type can be any one of the following values
@@ -93,6 +101,8 @@ where query_type can be any one of the following values
 - near_by_places
 - similar_places
 - how_to_reach
+
+Note: The skill is still in development statge and as of now it cannot answer queries for all the states.
 
 The webapp maintains a database of tourist spots. The data is added by the admin. The server has two types of provision
 to server the requests it receives about spots and query type. If the information about the spot is available in its

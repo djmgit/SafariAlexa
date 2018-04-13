@@ -194,6 +194,10 @@ htttp://127.0.0.1:5000
 The admin interface can be accessed at ```/admin```
 However for that you need to create an admin manually from your Postgres console. This will be improved in the future
 
+## Future goals
 
+SafariAlexa is at the very early stages of development. Below are some future goals
 
-
+- Adding more data to the database
+- Adding more scrapers and data mining strategies for dynamically building a strong database
+- Improving interaction experience by adding more utterances

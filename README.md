@@ -16,7 +16,7 @@ Alexa and Alexa will answer them.
 
 ## How to use the skill
 The **invocation phrase** for this skill is **go safari**. So in order to use this skill preceed all your queries with
-the phrase go safari.
+the phrase 'ask go safari'.
 For example:
 
 **ask go safari to name some places to visit in maharashtra**

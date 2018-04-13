@@ -259,10 +259,12 @@ def query_spot():
     return jsonify(response);
 
 def collect_data(spot, query_type):
+    print ('inside collectdata')
     response = {}
     response['status'] = STATUS['_NOT_FOUND']
 
     if query_type == 'time_to_visit':
+        print ('inside time_to_visit')
         response = get_time_to_visit(spot)
 
     return response

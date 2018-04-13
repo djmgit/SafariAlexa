@@ -4,6 +4,7 @@ from flask_admin import Admin, BaseView, expose
 from flask_admin.contrib.sqla import ModelView
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 from flask_cors import CORS
+from scrapers import get_time_to_visit
 import json
 import re
 import os
@@ -211,9 +212,18 @@ def query_spot():
     spot = spot.lower()
 
     spot_obj = Spots.query.filter_by(name=spot).all()
+
+    # if not present in data base then scrape from web
     if not spot_obj:
         response['spot_name'] = spot
-        response['status'] = STATUS['_NOT_FOUND']
+        collected_data = collect_data(spot, query_type)
+
+        # check status first
+        if collected_data['status'] == STATUS['_NOT_FOUND']:
+            response['status'] = STATUS['_NOT_FOUND']
+        else:
+            response['status'] = STATUS['_FOUND']
+            response[query_type] = collected_data['data']
         return jsonify(response)
 
     spot_obj = spot_obj[0]
@@ -245,6 +255,15 @@ def query_spot():
         response['how_to_reach'] = spot_obj.how_to_reach
 
     return jsonify(response);
+
+def collect_data(spot, query_type):
+    response = {}
+    response['status'] = STATUS['_NOT_FOUND']
+
+    if query_type == 'time_to_visit':
+        response = get_time_to_visit(spot)
+
+    return response
 
 @login_manager.unauthorized_handler
 def unauthorized_callback():

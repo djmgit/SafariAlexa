@@ -41,4 +41,16 @@ or
 
 **ask go safari how should I reach manali**
 
+## Technology Stack
+- Alexa NodeJS kit
+- NodeJS
+- AWS Lambda
+- Python
+- Flask
+- Flask-admin
+- BeautifulSoup
+- Heroku
+
+
+
 

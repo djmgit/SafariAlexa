@@ -8,6 +8,12 @@ of the year to visit that spot, what are the special attractions of that place, 
 all these information from various sources on the Internet, users can simply ask their queries to 
 Alexa and Alexa will answer them.
 
+<table>
+<tr>
+<td><img src="images/alexaf2.gif"></td>
+</tr>
+</table>
+
 ## How to use the skill
 The **invocation phrase** for this skill is **go safari**. So in order to use this skill preceed all your queries with
 the phrase go safari.

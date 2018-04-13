@@ -20,6 +20,18 @@ QUERY_TYPE['near_by_places'] = 'near_by_places';
 QUERY_TYPE['similar_places'] = 'similar_places';
 QUERY_TYPE['how_to_reach'] = 'how_to_reach';
 
+const notFoundMessage = [
+    'Sorry, I do not know the answer to this',
+    'I am not sure',
+    'Unfortunately, I dont know the answer',
+    'Sorry, I dont know',
+    'Not sure',
+    'Please ask me something else',
+    'I have no answer to this',
+    'Please try some other question',
+    'I have not got this one'
+]
+
 exports.handler = function(event, context, callback) {
     var alexa = Alexa.handler(event, context);
     alexa.appId = APP_ID;

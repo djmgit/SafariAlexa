@@ -213,8 +213,13 @@ def query_spot():
 
     spot_obj = Spots.query.filter_by(name=spot).all()
 
+    if spot_obj:
+        print ("heeeeeeehaaaaaaaaaaa")
+
     # if not present in data base then scrape from web
+    print ('jajajajaaj')
     if not spot_obj:
+        print ('hahahahaha')
         print ('scraping data')
         response['spot_name'] = spot
         collected_data = collect_data(spot, query_type)

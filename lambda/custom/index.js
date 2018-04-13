@@ -20,6 +20,7 @@ QUERY_TYPE['near_by_places'] = 'near_by_places';
 QUERY_TYPE['similar_places'] = 'similar_places';
 QUERY_TYPE['how_to_reach'] = 'how_to_reach';
 
+// replies that alexa will give if answer is not found
 const notFoundMessage = [
     'Sorry, I do not know the answer to this',
     'I am not sure',
@@ -31,6 +32,19 @@ const notFoundMessage = [
     'Please try some other question',
     'I have not got this one'
 ]
+
+const API_STATUS = {
+    'found': 'FOUND',
+    'notFound': 'NOT_FOUND'
+}
+
+// method to generate a not found answer
+function getNotFoundResponse() {
+    const responseIndex = Math.floor(Math.random() * notFoundMessage.length);
+    const randomReply = notFoundMessage[responseIndex];
+
+    return randomReply;
+}
 
 exports.handler = function(event, context, callback) {
     var alexa = Alexa.handler(event, context);
@@ -50,10 +64,15 @@ const handlers = {
         console.log(state);
 
         httpsGet(myPath,  (myResult) => {
-                console.log("received : " + myResult.places_to_visit);
+                if (myResult.status == API_STATUS.found) {
+                    console.log("received : " + myResult.places_to_visit);
 
-                this.response.speak(myResult.places_to_visit);
-                this.emit(':responseReady');
+                    this.response.speak(myResult.places_to_visit);
+                    this.emit(':responseReady');
+                } else{
+                    this.response.speak(getNotFoundResponse());
+                    this.emit(':responseReady');
+                }
 
             }
         );
@@ -64,8 +83,13 @@ const handlers = {
         var myPath = '/api/query_spot?spot=' + encodeURIComponent(spot) + '&query_type=' + encodeURIComponent(QUERY_TYPE.location);
 
         httpsGet(myPath,  (myResult) => {
-                this.response.speak(myResult.location);
-                this.emit(':responseReady');
+                if (myResult.status == API_STATUS.found) {
+                    this.response.speak(myResult.location);
+                    this.emit(':responseReady');
+                } else {
+                    this.response.speak(getNotFoundResponse());
+                    this.emit(':responseReady');
+                }
 
             }
         );
@@ -76,8 +100,13 @@ const handlers = {
         var myPath = '/api/query_spot?spot=' + encodeURIComponent(spot) + '&query_type=' + encodeURIComponent(QUERY_TYPE.info);
 
         httpsGet(myPath,  (myResult) => {
-                this.response.speak(myResult.info);
-                this.emit(':responseReady');
+                if (myResult.status == API_STATUS.found) {
+                    this.response.speak(myResult.info);
+                    this.emit(':responseReady');
+                } else {
+                    this.response.speak(getNotFoundResponse());
+                    this.emit(':responseReady');
+                }
 
             }
         );
@@ -88,9 +117,13 @@ const handlers = {
         var myPath = '/api/query_spot?spot=' + encodeURIComponent(spot) + '&query_type=' + encodeURIComponent(QUERY_TYPE.things_to_do);
 
         httpsGet(myPath,  (myResult) => {
-                this.response.speak(myResult.things_to_do);
-                this.emit(':responseReady');
-
+                if (myResult.status == API_STATUS.found) {
+                    this.response.speak(myResult.things_to_do);
+                    this.emit(':responseReady');
+                } else {
+                    this.response.speak(getNotFoundResponse());
+                    this.emit(':responseReady');
+                }
             }
         );
     },
@@ -100,8 +133,13 @@ const handlers = {
         var myPath = '/api/query_spot?spot=' + encodeURIComponent(spot) + '&query_type=' + encodeURIComponent(QUERY_TYPE.special_attraction);
 
         httpsGet(myPath,  (myResult) => {
-                this.response.speak(myResult.special_attraction);
-                this.emit(':responseReady');
+                if (myResult.status == API_STATUS.found) {
+                    this.response.speak(myResult.special_attraction);
+                    this.emit(':responseReady');
+                } else {
+                    this.response.speak(getNotFoundResponse());
+                    this.emit(':responseReady');
+                }
 
             }
         );
@@ -112,8 +150,13 @@ const handlers = {
         var myPath = '/api/query_spot?spot=' + encodeURIComponent(spot) + '&query_type=' + encodeURIComponent(QUERY_TYPE.time_to_visit);
 
         httpsGet(myPath,  (myResult) => {
-                this.response.speak(myResult.time_to_visit);
-                this.emit(':responseReady');
+                if (myResult.status == API_STATUS.found) {
+                    this.response.speak(myResult.time_to_visit);
+                    this.emit(':responseReady');
+                } else {
+                    this.response.speak(getNotFoundResponse());
+                    this.emit(':responseReady');
+                }
 
             }
         );
@@ -124,8 +167,13 @@ const handlers = {
         var myPath = '/api/query_spot?spot=' + encodeURIComponent(spot) + '&query_type=' + encodeURIComponent(QUERY_TYPE.near_by_places);
 
         httpsGet(myPath,  (myResult) => {
-                this.response.speak(myResult.near_by_places);
-                this.emit(':responseReady');
+                if (myResult.status == API_STATUS.found) {
+                    this.response.speak(myResult.near_by_places);
+                    this.emit(':responseReady');
+                } else {
+                    this.response.speak(getNotFoundResponse());
+                    this.emit(':responseReady');
+                }
 
             }
         );
@@ -136,8 +184,13 @@ const handlers = {
         var myPath = '/api/query_spot?spot=' + encodeURIComponent(spot) + '&query_type=' + encodeURIComponent(QUERY_TYPE.similar_places);
 
         httpsGet(myPath,  (myResult) => {
-                this.response.speak(myResult.similar_places);
-                this.emit(':responseReady');
+                if (myResult.status == API_STATUS.found) {
+                    this.response.speak(myResult.similar_places);
+                    this.emit(':responseReady');
+                } else {
+                    this.response.speak(getNotFoundResponse());
+                    this.emit(':responseReady');
+                }
 
             }
         );
@@ -148,8 +201,13 @@ const handlers = {
         var myPath = '/api/query_spot?spot=' + encodeURIComponent(spot) + '&query_type=' + encodeURIComponent(QUERY_TYPE.how_to_reach);
 
         httpsGet(myPath,  (myResult) => {
-                this.response.speak(myResult.how_to_reach);
-                this.emit(':responseReady');
+                if (myResult.status == API_STATUS.found) {
+                    this.response.speak(myResult.how_to_reach);
+                    this.emit(':responseReady');
+                } else {
+                    this.response.speak(getNotFoundResponse());
+                    this.emit(':responseReady');
+                }
 
             }
         );

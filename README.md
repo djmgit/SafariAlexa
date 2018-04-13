@@ -81,3 +81,26 @@ curl 'http://alexasafari.herokuapp.com/api/query_spot?spot=manali&query_type=inf
 ```
 http://alexasafari.herokuapp.com/api/query_spot?spot=[name_of_the_spot]&query_type=[type_of_query]
 ```
+
+where query_type can be any one of the following values
+
+- location
+- info
+- things_to_do
+- special_attraction
+- time_to_visit
+- near_by_places
+- similar_places
+- how_to_reach
+
+The webapp maintains a database of tourist spots. The data is added by the admin. The server has two types of provision
+to server the requests it receives about spots and query type. If the information about the spot is available in its
+database, then it can return the data immidietely. Otherwise the server can employ scrapers to scrape the required
+information from the web. Presently the project contains one such scraper, the **bttv_scraper** which finds out the best
+time of the year to visit a particular place in case that particular place is not present in the data base.
+In future more such scrapers will be added.
+
+The webapp provides a simple and easy to use admin interface to add and maintain the data base. Admin has to login using
+his credentials and an authorised admin can add other admins.
+
+

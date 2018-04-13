@@ -2,7 +2,7 @@
 
 SafariAlexa is an Alexa skill focussed on tourism, primarily tourism in **India**. 
 The purpose of this skill is to help people to gather various
-information on different tourist places (especially in India as of now)from Alexa. This skill will
+information on different tourist places (especially in India as of now) from Alexa. This skill will
 allow Alexa to answer queries like what is the location of a particulat spot, what is the best time
 of the year to visit that spot, what are the special attractions of that place, etc. Instead of searching
 all these information from various sources on the Internet, users can simply ask their queries to 

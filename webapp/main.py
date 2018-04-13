@@ -215,6 +215,8 @@ def query_spot():
 
     # if not present in data base then scrape from web
     if not spot_obj:
+        print ('collect data')
+        print (get_time_to_visit)
         response['spot_name'] = spot
         collected_data = collect_data(spot, query_type)
 

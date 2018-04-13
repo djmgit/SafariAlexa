@@ -51,6 +51,33 @@ or
 - BeautifulSoup
 - Heroku
 
+## How the project works
+The skill works at three stages, the **Alexa voice user interface (VUI)** stage, the client interacts with Alexa using VUI,
+that **lambda function** which runs the app logic for generating alexa response and finally the web app which provides
+the REST API from where Alexa fetches all its data.
 
+When the user procvides a voice input, Alexa uses its VUI to handle the user input, and it finds out a particular
+**intent** which can serve the user query. Alexa, after determining the appropriate intent and parameter, sends a request
+to the lambda function. The lambda function uses the appropriate **handler** to serve the request. The handler actually
+makes a API call to the above mentioned REST API to get the required data, generates the response and sends it back to Alexa
+VUI.
 
+### The REST API
+The REST API provides the neccessary data to server the user requests. The data is provided from a database which needs
+to be maintained by an admin.
 
+Example of the REST API:
+
+```
+curl 'http://alexasafari.herokuapp.com/api/query_spot?spot=manali&query_type=info'
+{
+  "info": "Circled by towering peaks in the rich verdant valley of the Beas River, with mountain ventures waving from all directions, Manali is a year-round attraction. Travelers assemble here to hang out in the hippie villages around the main town; adventure seekers come for trekking, climbing, mountain biking, canyoning, paragliding, rafting and skiing; and much more.", 
+  "spot_name": "manali", 
+  "status": "FOUND"
+}
+```
+**Basic format**
+
+```
+http://alexasafari.herokuapp.com/api/query_spot?spot=[name_of_the_spot]&query_type=[type_of_query]
+```

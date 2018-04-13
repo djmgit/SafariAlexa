@@ -103,4 +103,18 @@ In future more such scrapers will be added.
 The webapp provides a simple and easy to use admin interface to add and maintain the data base. Admin has to login using
 his credentials and an authorised admin can add other admins.
 
+<table>
+<tr>
+<td><img src="images/admin.png"></td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td><img src="images/add.png"></td>
+</tr>
+</table>
+
+
+
 

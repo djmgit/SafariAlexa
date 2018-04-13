@@ -48,6 +48,7 @@ or
 - Python
 - Flask
 - Flask-admin
+- Postgres
 - BeautifulSoup
 - Heroku
 
@@ -114,6 +115,84 @@ his credentials and an authorised admin can add other admins.
 <td><img src="images/add.png"></td>
 </tr>
 </table>
+
+## How to build the project
+
+In order to build the skill along with the backend app and lambda functions, follow the below instructions
+
+### Creating the skill
+
+- Firstly, create a new ALexa skill by following the instructions present over 
+  <a href='https://developer.amazon.com/alexa-skills-kit/tutorials/fact-skill-1'>here</a>
+  
+- Once the skill is created, open the tab for interaction model from the skill dash board, open the JSON edittor 
+  and paste the model from <a href='InteractionModel.json'>here</a>
+  
+- Next create a lambda function by following the instructions present over 
+  <a href="https://developer.amazon.com/alexa-skills-kit/tutorials/fact-skill-2>here</a>
+  
+- Do not forget to save and build your skill
+  
+- In the edittor for the lambda function code, paste the content from <a href="lambda/custom/index.js">here</a>
+
+- Save your lambda function
+
+- Connect your lambda function to Alexa VUI
+
+### Building the backend app
+
+Follow the below instructions to build the REST API locally
+
+- Enter into the directory called webapp
+
+- The API is build using python3, so you must have python3 installed
+
+- Execute ``` pip install -r requirements.txt ```
+  This will install all the dependencies for this app.
+  If you encounter permission issues, please execute the above command with superuser access. For debian based systems like
+  Ubuntu the command will be-
+  ``` sudo pip install -r requirements.txt ```
+  You may use virtualenv for building this app if you do not want to install dependencies in your global space.
+
+### Installing the database
+
+Execute the following to install Postgres on your system-
+```
+sudo apt-get update
+sudo apt-get install postgresql postgresql-contrib
+```
+This will install Postgres on your system.
+Next you need to create a database where you will be creating tables for this project.
+By default Postgres creates a role (user) named after your system username (the username by which you are currently logged in) and a database names postgres.
+In order to create a new database and get familiar with Postgres follow this article-
+[Setting up Postgres onn Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-16-04)
+
+After Postgres is up and running you will have to apply migrations for your app and create tables.
+For this execute the following from the project root.
+
+```
+python app/manage.py db init
+python app/manage.py db migrate
+python app/manage.py db upgrade
+
+```
+
+This will create tables and apply migrations.
+
+### Running the app
+Finally run the app using the following:
+```
+python app/main.py
+```
+This will start the development server at 127.0.0.1 (localhost) and port 5000
+
+Now visit the following URL in your browser:
+```
+htttp://127.0.0.1:5000
+```
+
+The admin interface can be accessed at ```/admin```
+However for that you need to create an admin manually from your Postgres console. This will be improved in the future
 
 
 

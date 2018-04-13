@@ -4,10 +4,7 @@ from flask_admin import Admin, BaseView, expose
 from flask_admin.contrib.sqla import ModelView
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 from flask_cors import CORS
-#from scrapers import get_time_to_visit
-import requests
-from bs4 import BeautifulSoup as bs
-import traceback
+from scrapers import get_time_to_visit
 import json
 import re
 import os
@@ -22,39 +19,6 @@ else:
 app.config['SECRET_KEY'] = "THIS IS SECRET"
 
 db = SQLAlchemy(app)
-
-BASE_QUERY = 'best time to visit'
-BASE_URL = "https://www.google.co.in/search"
-headers = {'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36'}
-
-def get_html_page(place_name):
-    url_query = "{} {}".format(BASE_QUERY, place_name)
-    url = "{}?q={}".format(BASE_URL, url_query)
-    response = requests.get(url, headers=headers, timeout=5)
-
-    return response.content, response.status_code
-
-def get_time_to_visit(place_name):
-
-    response = {}
-
-    html, status_code = get_html_page(place_name)
-    if status_code != 200:
-        response['status'] = 'NOT_FOUND'
-        return response
-
-    soup = bs(html, 'html.parser')
-    try:
-        data = soup.find_all('div', {'class': 'mod', 'data-md': '61'})[0]
-        if data:
-            response['status'] = 'FOUND'
-            response['data'] = data.get_text()
-        else:
-            response['status'] = 'NOT_FOUND'
-    except:
-        response['status'] = 'NOT_FOUND'
-        
-    return response
 
 # define constants
 STATUS = {'_FOUND': 'FOUND', '_NOT_FOUND': 'NOT_FOUND'}
@@ -249,17 +213,12 @@ def query_spot():
 
     spot_obj = Spots.query.filter_by(name=spot).all()
 
-    if spot_obj:
-        print ("heeeeeeehaaaaaaaaaaa")
-
     # if not present in data base then scrape from web
-    print ('jajajajaaj')
     if not spot_obj:
-        print ('hahahahaha')
-        print ('scraping data')
+        print ('hulaaa')
+        print (get_time_to_visit)
         response['spot_name'] = spot
         collected_data = collect_data(spot, query_type)
-        print (collected_data)
 
         # check status first
         if collected_data['status'] == STATUS['_NOT_FOUND']:
@@ -300,12 +259,10 @@ def query_spot():
     return jsonify(response);
 
 def collect_data(spot, query_type):
-    print ('inside collectdata')
     response = {}
     response['status'] = STATUS['_NOT_FOUND']
 
     if query_type == 'time_to_visit':
-        print ('inside time_to_visit')
         response = get_time_to_visit(spot)
 
     return response

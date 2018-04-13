@@ -129,7 +129,7 @@ In order to build the skill along with the backend app and lambda functions, fol
   and paste the model from <a href='InteractionModel.json'>here</a>
   
 - Next create a lambda function by following the instructions present over 
-  <a href="https://developer.amazon.com/alexa-skills-kit/tutorials/fact-skill-2>here</a>
+  <a href="https://developer.amazon.com/alexa-skills-kit/tutorials/fact-skill-2">here</a>
   
 - Do not forget to save and build your skill
   

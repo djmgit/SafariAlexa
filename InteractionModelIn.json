@@ -1,0 +1,399 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "go safari",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AboutIntent",
+                    "slots": [],
+                    "samples": [
+                        "what can you do for me",
+                        "how to operate it",
+                        "how to use it",
+                        "how to use this",
+                        "how this works",
+                        "What it does",
+                        "What is it all about",
+                        "What can you do"
+                    ]
+                },
+                {
+                    "name": "GetTouristPlaces",
+                    "slots": [
+                        {
+                            "name": "state",
+                            "type": "AMAZON.City"
+                        }
+                    ],
+                    "samples": [
+                        "lets go to {state}",
+                        "places in {state}",
+                        "what are some tourist places in {state}",
+                        "tourist places in {state}",
+                        "what are the places to visit in {state}",
+                        "places I can visit in {state}",
+                        "name some places to visit in {state}",
+                        "Where can I go in {state}",
+                        "Places to visit in {state}",
+                        "Give me some places in {state}"
+                    ]
+                },
+                {
+                    "name": "GetLocationIntent",
+                    "slots": [
+                        {
+                            "name": "spot",
+                            "type": "AMAZON.SearchQuery"
+                        }
+                    ],
+                    "samples": [
+                        "{spot} location",
+                        "location of {spot}",
+                        "provide the location of {spot}",
+                        "find the location of {spot}",
+                        "what is the location of {spot}",
+                        "where is {spot} located",
+                        "search the location of {spot}",
+                        "tell me the location of {spot}"
+                    ]
+                },
+                {
+                    "name": "GetInfoIntent",
+                    "slots": [
+                        {
+                            "name": "spot",
+                            "type": "AMAZON.SearchQuery"
+                        }
+                    ],
+                    "samples": [
+                        "give information about {spot}",
+                        "find me information about {spot}",
+                        "provide information about {spot}",
+                        "give me some information about {spot}",
+                        "provide me some information about {spot}",
+                        "do you know anything about {spot}",
+                        "what do you know about {spot}",
+                        "tell me something about {spot}"
+                    ]
+                },
+                {
+                    "name": "GetThingsToDoIntent",
+                    "slots": [
+                        {
+                            "name": "spot",
+                            "type": "AMAZON.SearchQuery"
+                        }
+                    ],
+                    "samples": [
+                        "tell me somethings i should try at {spot}",
+                        "what are the things to be done at {spot}",
+                        "what are the things i should try at {spot}",
+                        "what are the things i should do at {spot}",
+                        "what should I try out in {spot}",
+                        "what to do at {spot}",
+                        "let me know the things people do at {spot}",
+                        "what are the things people do at {spot}",
+                        "what can I do at {spot}",
+                        "tell me some of the things to do at {spot}",
+                        "what are the things I can do at {spot}"
+                    ]
+                },
+                {
+                    "name": "GetSpecialAttractionIntent",
+                    "slots": [
+                        {
+                            "name": "spot",
+                            "type": "AMAZON.SearchQuery"
+                        }
+                    ],
+                    "samples": [
+                        "special attractions of {spot}",
+                        "tell me about some of the special attractions at {spot}",
+                        "let me know some of the special attractions at {spot}",
+                        "provide me the special attractions at {spot}",
+                        "{spot} special attraction",
+                        "tell me the special attractions of {spot}",
+                        "special attractions at {spot}",
+                        "what are the special attractions at {spot}"
+                    ]
+                },
+                {
+                    "name": "GetTimeToVisitIntent",
+                    "slots": [
+                        {
+                            "name": "spot",
+                            "type": "AMAZON.SearchQuery"
+                        }
+                    ],
+                    "samples": [
+                        "tell me the proper time to visit {spot}",
+                        "tell me the most suitable time to visit {spot}",
+                        "tell me the right time to visit {spot}",
+                        "{spot} best time to visit",
+                        "what is the right time to visit {spot}",
+                        "when to visit {spot}",
+                        "when should I visit {spot}",
+                        "time to visit {spot}",
+                        "what is the most suitable time to visit {spot} ",
+                        "what is the best time to visit {spot}"
+                    ]
+                },
+                {
+                    "name": "GetNearByPlacesIntent",
+                    "slots": [
+                        {
+                            "name": "spot",
+                            "type": "AMAZON.SearchQuery"
+                        }
+                    ],
+                    "samples": [
+                        "provide me some places in {spot}",
+                        "what are some of the places in {spot}",
+                        "what are the places in {spot}",
+                        "places in {spot}",
+                        "name some places in {spot}",
+                        "name some places to visit in {spot}",
+                        "name some places i should go in {spot}",
+                        "where should I go in {spot}",
+                        "places to visit in {spot}",
+                        "provide me some places near {spot}",
+                        "name some places near {spot}",
+                        "places near {spot}",
+                        "What are the plaes near {spot}"
+                    ]
+                },
+                {
+                    "name": "GetSimilarPlacesIntent",
+                    "slots": [
+                        {
+                            "name": "spot",
+                            "type": "AMAZON.SearchQuery"
+                        }
+                    ],
+                    "samples": [
+                        "tell me places similar to {spot}",
+                        "tell me some places similar to {spot}",
+                        "places similar to {spot}",
+                        "give some places similar to {spot}",
+                        "provide me with some of the places similar to {spot}",
+                        "name some places similar to {spot}"
+                    ]
+                },
+                {
+                    "name": "GetHowToReachIntent",
+                    "slots": [
+                        {
+                            "name": "spot",
+                            "type": "AMAZON.SearchQuery"
+                        }
+                    ],
+                    "samples": [
+                        "how should i reach {spot}",
+                        "tell me how can i reach {spot}",
+                        "how can I reach {spot}",
+                        "how to reach {spot}"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "AMAZON.City",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "assam"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "andhra pradesh"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "arunachal pradesh"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "bihar"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "chhattisgarh"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "goa"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "gujarat"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "haryana"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "himachal pradesh"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "jammu & kashmir"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "jharkhand"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "karnataka"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "kerala"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "madhya pradesh"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "maharashtra"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "manipur"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "meghalaya"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "mizoram"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "nagaland"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "odisha"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "punjab"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "rajasthan"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sikkim"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "tamil nadu"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "telangana"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "tripura"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "uttarakhand"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "uttar pradesh"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "west bengal"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Andaman and Nicobar Islands"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Chandigarh"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Dadra and Nagar Haveli"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Daman & Diu"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "The Government of NCT of Delhi"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Lakshadweep"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Puducherry"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

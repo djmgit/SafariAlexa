@@ -97,6 +97,11 @@
                         }
                     ],
                     "samples": [
+                        "tell me somethings i should try at {spot}",
+                        "what are the things to be done at {spot}",
+                        "what are the things i should try at {spot}",
+                        "what are the things i should do at {spot}",
+                        "what should I try out in {spot}",
                         "what to do at {spot}",
                         "let me know the things people do at {spot}",
                         "what are the things people do at {spot}",
@@ -154,6 +159,15 @@
                         }
                     ],
                     "samples": [
+                        "provide me some places in {spot}",
+                        "what are some of the places in {spot}",
+                        "what are the places in {spot}",
+                        "places in {spot}",
+                        "name some places in {spot}",
+                        "name some places to visit in {spot}",
+                        "name some places i should go in {spot}",
+                        "where should I go in {spot}",
+                        "places to visit in {spot}",
                         "provide me some places near {spot}",
                         "name some places near {spot}",
                         "places near {spot}",

@@ -185,7 +185,7 @@
                     "samples": [
                         "tell me places similar to {spot}",
                         "tell me some places similar to {spot}",
-                        "places similar to kolkata {spot}",
+                        "places similar to {spot}",
                         "give some places similar to {spot}",
                         "provide me with some of the places similar to {spot}",
                         "name some places similar to {spot}"
